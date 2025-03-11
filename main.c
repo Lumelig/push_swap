@@ -6,7 +6,7 @@
 /*   By: jpflegha <jpflegha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 23:41:08 by jpflegha          #+#    #+#             */
-/*   Updated: 2025/03/11 13:52:41 by jpflegha         ###   ########.fr       */
+/*   Updated: 2025/03/11 16:07:21 by jpflegha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void    check_algorithmen(char **input, int size)
         if (size == 2)
         {
             if (stack_a[0] > stack_a[1])
-                write(1, "sa\n", 3);
+                rotate_a(stack_a, 2);
         }
         else if (size == 3)
         {

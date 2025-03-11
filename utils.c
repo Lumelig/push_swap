@@ -6,7 +6,7 @@
 /*   By: jpflegha <jpflegha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 12:46:00 by jpflegha          #+#    #+#             */
-/*   Updated: 2025/03/11 13:39:08 by jpflegha         ###   ########.fr       */
+/*   Updated: 2025/03/11 16:04:46 by jpflegha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int *create_stack_a(char **input, int size)
     if (has_duplicates(stack_a, size))
     {
         free(stack_a);
-        return (NULL);
+        exit;
     }
     
     return (stack_a);
@@ -56,14 +56,12 @@ void    malloc_fail(int *stack_a, int *stack_b)
     if (!stack_a)
     {
         write(STDERR_FILENO, "Malloc fail\n", 13);
-        exit;
     }
     
     if (!stack_b)
     {
         free(stack_a);
         write(STDERR_FILENO, "Malloc fail\n", 13);
-        exit;
     }
 }
 
