@@ -1,6 +1,6 @@
 NAME = push_swap
 
-SRCS = main.c libft/libft.a
+SRCS = main.c utils.c radix_sort.c push_swap.c libft/libft.a 
 
 OBJECTS = $(SRCS:%.c=%.o)
 HEADER = push_swap.h
