@@ -6,7 +6,7 @@
 /*   By: jpflegha <jpflegha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 13:32:38 by jpflegha          #+#    #+#             */
-/*   Updated: 2025/03/11 14:03:02 by jpflegha         ###   ########.fr       */
+/*   Updated: 2025/03/12 13:52:28 by jpflegha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,5 +135,6 @@ void radix_sort(int *stack_a, int *stack_b, int size)
     index_stack(stack_a, size);
     max_bits = get_max_bits(size - 1);
     sort_by_bit(max_bits, size, stack_a, stack_b);
-
+    free(stack_a);
+    free(stack_b);
 }
