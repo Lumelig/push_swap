@@ -1,6 +1,6 @@
 NAME = push_swap
 
-SRCS = main.c utils.c utils_sort.c radix_sort.c bubble.c push_swap.c push_swap_tow.c  libft/libft.a 
+SRCS = main.c utils.c utils_sort.c radix_sort.c op_radix.c bubble.c push_swap.c push_swap_tow.c  libft/libft.a 
 
 OBJECTS = $(SRCS:%.c=%.o)
 HEADER = push_swap.h
@@ -27,6 +27,11 @@ $(NAME): $(OBJECTS) libft
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJECTS) $(LIBFT) $(LIB_DIRS) $(INCLUDES)
 
 clean:
+	rm -fr $(OBJECTS)
+	
+
+fclean:
+	rm -fr push_swap
 	rm -fr $(OBJECTS)
 	@make -C $(LIBFT_DIR) fclean
 	rm -fr $(LIBFT_DIR)
