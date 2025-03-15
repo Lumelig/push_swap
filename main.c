@@ -6,7 +6,7 @@
 /*   By: jpflegha <jpflegha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 23:41:08 by jpflegha          #+#    #+#             */
-/*   Updated: 2025/03/14 14:58:41 by jpflegha         ###   ########.fr       */
+/*   Updated: 2025/03/15 13:24:54 by jpflegha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,11 +80,10 @@ void	check_algorithmen(char **input, int size)
 			if (stack_a[0] > stack_a[1])
 				rotate_a(stack_a, 2);
 		}
-		// else if (size == 5)
-		// {
-		// 	Implement sort_three function for 3 elements
-		// 	(Not implemented here but should be for efficiency)
-		// }
+		else if (size <= 20)
+		{
+			bubble_sort(stack_a, stack_b, size);
+		}
 		else
 			radix_sort(stack_a, stack_b, size);
 	}

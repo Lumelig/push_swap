@@ -6,7 +6,7 @@
 /*   By: jpflegha <jpflegha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 13:32:38 by jpflegha          #+#    #+#             */
-/*   Updated: 2025/03/14 15:14:13 by jpflegha         ###   ########.fr       */
+/*   Updated: 2025/03/15 13:41:05 by jpflegha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ void	index_stack(int *stack_a, int size)
 		copy[i] = stack_a[i];
 		i++;
 	}
-	bubble_sort(copy, size);
+	index_sort(copy, size);
 	create_index(stack_a, copy, size, index);
 }
 
-void	bubble_sort(int *copy, int size)
+void	index_sort(int *copy, int size)
 {
 	int	i;
 	int	j;
@@ -72,8 +72,8 @@ void	create_index(int *stack_a, int *copy, int size, int *index)
 	i = 0;
 	while (i < size)
 	{
-		j = 0;
-		while (j++ < size)
+		j = -1;
+		while (++j < size)
 		{
 			if (stack_a[i] == copy[j])
 			{

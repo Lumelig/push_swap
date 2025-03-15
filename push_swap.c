@@ -6,7 +6,7 @@
 /*   By: jpflegha <jpflegha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 13:36:34 by jpflegha          #+#    #+#             */
-/*   Updated: 2025/03/14 14:49:14 by jpflegha         ###   ########.fr       */
+/*   Updated: 2025/03/15 14:00:44 by jpflegha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,27 @@ void	rotate_a(int *stack_a, int size_a)
 	}
 	stack_a[size_a - 1] = temp;
 	write(1, "ra\n", 3);
+}
+void swap_a(int *stack_a, int size_a)
+{
+    int temp;
+
+    if (size_a < 2)
+        return;
+    temp = stack_a[0];
+    stack_a[0] = stack_a[1];
+    stack_a[1] = temp;
+	write(STDOUT_FILENO, "sa\n", 3);
+}
+
+void swap_b(int *stack_b, int size_b)
+{
+    int temp;
+
+    if (size_b < 2)
+        return;
+    temp = stack_b[0];
+    stack_b[0] = stack_b[1];
+    stack_b[1] = temp;
+    write(STDOUT_FILENO, "sb\n", 3);
 }
