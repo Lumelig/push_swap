@@ -6,7 +6,7 @@
 /*   By: jpflegha <jpflegha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 13:32:38 by jpflegha          #+#    #+#             */
-/*   Updated: 2025/03/15 18:52:13 by jpflegha         ###   ########.fr       */
+/*   Updated: 2025/03/15 19:02:02 by jpflegha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void	create_index(int *stack_a, int *copy, int size, int *index)
 	free(index);
 }
 
-void	*sort_by_bit(int max_bits, int size, int *stack_a, int *stack_b)
+void	sort_by_bit(int max_bits, int size, int *stack_a, int *stack_b)
 {
 	int	size_b;
 	int	size_a;
@@ -110,10 +110,10 @@ void	*sort_by_bit(int max_bits, int size, int *stack_a, int *stack_b)
 		{
 			if (size_a > 0)
 			{
-				if (((stack_a[0] >> i) & 1) == 0)
-					push_b(stack_a, stack_b, &size_a, &size_b);
-				else
+				if (((stack_a[0] >> i) & 1) & 1)
 					rotate_a(stack_a, size_a);
+				else
+					push_b(stack_a, stack_b, &size_a, &size_b);
 			}
 		}
 		while (size_b > 0)
@@ -133,85 +133,4 @@ void	radix_sort(int *stack_a, int *stack_b, int size)
 	}
 	free(stack_a);
 	free(stack_b);
-}
-
-
-
-
-
-
-
-#include <stdlib.h>
-
-void swap(int *a, int *b)
-{
-	int temp = *a;
-	*a = *b;
-	*b = temp;
-}
-
-void quick_sort(int *arr, int low, int high)
-{
-	if (low < high)
-	{
-		int pivot = arr[high];
-		int i = low - 1;
-		for (int j = low; j < high; j++)
-		{
-			if (arr[j] < pivot)
-				swap(&arr[++i], &arr[j]);
-		}
-		swap(&arr[i + 1], &arr[high]);
-		quick_sort(arr, low, i);
-		quick_sort(arr, i + 2, high);
-	}
-}
-
-void index_stack(int *stack_a, int size)
-{
-	int *copy = malloc(sizeof(int) * size);
-	if (!copy)
-		return;
-	for (int i = 0; i < size; i++)
-		copy[i] = stack_a[i];
-
-	quick_sort(copy, 0, size - 1);
-
-	for (int i = 0; i < size; i++)
-		for (int j = 0; j < size; j++)
-			if (stack_a[i] == copy[j])
-			{
-				stack_a[i] = j;
-				break;
-			}
-
-	free(copy);
-}
-
-void sort_by_bit(int max_bits, int size, int *stack_a, int *stack_b)
-{
-	int size_b = 0;
-	for (int i = 0; i < max_bits; i++)
-	{
-		int count = size; 
-		while (count--)
-		{
-			if ((stack_a[0] >> i) & 1)
-				rotate_a(stack_a, size);
-			else
-				push_b(stack_a, stack_b, &size, &size_b);
-		}
-		while (size_b > 0)
-			push_a(stack_a, stack_b, &size, &size_b);
-	}
-}
-
-void radix_sort(int *stack_a, int *stack_b, int size)
-{
-	if (is_sorted(stack_a, size) || size <= 1)
-		return;
-
-	index_stack(stack_a, size);
-	int max_bits = get_max_bits(size - 1);
-	sort_by_bit(max_bits, size, stack_a, stack_b);
 }

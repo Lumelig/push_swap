@@ -6,7 +6,7 @@
 /*   By: jpflegha <jpflegha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 23:45:31 by jpflegha          #+#    #+#             */
-/*   Updated: 2025/03/15 14:44:20 by jpflegha         ###   ########.fr       */
+/*   Updated: 2025/03/15 19:02:28 by jpflegha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	malloc_fail(int *stack_a, int *stack_b);
 
 void	radix_sort(int *stack_a, int *stack_b, int size);
 
-void	*sort_by_bit(int max_bits, int size, int *stack_a, int *stack_b);
+void	sort_by_bit(int max_bits, int size, int *stack_a, int *stack_b);
 
 void	rotate_a(int *stack_a, int size_a);
 
