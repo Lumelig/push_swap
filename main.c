@@ -6,7 +6,7 @@
 /*   By: jpflegha <jpflegha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 23:41:08 by jpflegha          #+#    #+#             */
-/*   Updated: 2025/03/16 18:54:56 by jpflegha         ###   ########.fr       */
+/*   Updated: 2025/03/16 19:30:44 by jpflegha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,14 +119,8 @@ int	main(int ac, char **av)
 		return (0);
 	else if (ac == 2)
 	{
-		if (!argv[1])
-		{
-			write(2, "How to sort one number ??? try again\n", 38);
-		}
 		argv = ft_split(av[1], ' ');
 		size = check_valid_input(argv);
-		if (size == 0)
-			return (1);
 	}
 	else
 	{
@@ -134,6 +128,11 @@ int	main(int ac, char **av)
 		size = check_valid_input(argv);
 		if (size == 0)
 			return (1);
+	}
+	if (size <= 1)
+	{
+		write(2, "What did you typ ??? try again\n", 32);
+		return (1);
 	}
 	decision_maker1(argv, size);
 	return (0);
