@@ -6,7 +6,7 @@
 /*   By: jpflegha <jpflegha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 13:32:38 by jpflegha          #+#    #+#             */
-/*   Updated: 2025/03/16 19:17:23 by jpflegha         ###   ########.fr       */
+/*   Updated: 2025/03/16 22:33:06 by jpflegha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ void	hard_sort(int *stack_a, int *stack_b, int size)
 
 	max_bits = get_max_bits(size - 1);
 	index_stack(stack_a, size);
-	if (size <= 100)
+	if (size <= 1)
 		sort_by_chunks(stack_a, stack_b, size);
 	else
 		radix_sort(max_bits, size, stack_a, stack_b);

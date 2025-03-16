@@ -6,7 +6,7 @@
 /*   By: jpflegha <jpflegha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 23:41:08 by jpflegha          #+#    #+#             */
-/*   Updated: 2025/03/16 19:30:44 by jpflegha         ###   ########.fr       */
+/*   Updated: 2025/03/16 22:40:45 by jpflegha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	check_duplicates(int *arr, int size)
 		{
 			if (arr[i] == arr[j])
 			{
-				write(2, "Error: Duplicate numbers found!\n", 33);
+				write(2, "Error\n", 7);
 				return (1);
 			}
 			j++;
@@ -68,10 +68,11 @@ int	check_valid_input(char **input)
 	{
 		while (input[i][j])
 		{
+			//fixen
 			if (!ft_isdigit(input[i][j]) && input[i][j] != '-'
-				&& input[i][j] != '+')
+			&& input[i][j] != '+' )
 			{
-				write(2, "Incorrect input! Only numbers are allowed.\n", 43);
+				write(2, "Error\n", 7);
 				return (0);
 			}
 			j++;
@@ -130,10 +131,7 @@ int	main(int ac, char **av)
 			return (1);
 	}
 	if (size <= 1)
-	{
-		write(2, "What did you typ ??? try again\n", 32);
 		return (1);
-	}
 	decision_maker1(argv, size);
 	return (0);
 }
