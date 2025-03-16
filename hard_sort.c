@@ -6,7 +6,7 @@
 /*   By: jpflegha <jpflegha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 13:32:38 by jpflegha          #+#    #+#             */
-/*   Updated: 2025/03/16 22:33:06 by jpflegha         ###   ########.fr       */
+/*   Updated: 2025/03/16 22:58:26 by jpflegha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,11 @@ void	push_max_from_b(int *stack_a, int *stack_b, int *size_a, int *size_b)
 			max_pos = j;
 		}
 	}
-	j = 0;
 	if (max_pos <= *size_b / 2)
-		while (j++ < max_pos)
+		while (max_pos-- > 0)
 			rotate_b(stack_b, *size_b);
 	else
-		while (j++ < *size_b - max_pos)
+		while (max_pos++ < *size_b -1)
 			reverse_rotate_b(stack_b, *size_b);
 	push_a(stack_a, stack_b, size_a, size_b);
 }
@@ -52,7 +51,7 @@ void	process_chunk(int *stack_a, int *stack_b, int size, int *current_vals)
 	chunk_min = current_vals[2];
 	chunk_max = current_vals[3];
 	i = 0;
-	while (i < size && size_a > 0)
+	while (i < size)
 	{
 		if (stack_a[0] >= chunk_min && stack_a[0] <= chunk_max)
 			push_b(stack_a, stack_b, &size_a, &size_b);
@@ -123,7 +122,7 @@ void	hard_sort(int *stack_a, int *stack_b, int size)
 
 	max_bits = get_max_bits(size - 1);
 	index_stack(stack_a, size);
-	if (size <= 1)
+	if (size <= 100)
 		sort_by_chunks(stack_a, stack_b, size);
 	else
 		radix_sort(max_bits, size, stack_a, stack_b);
