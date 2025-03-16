@@ -6,7 +6,7 @@
 /*   By: jpflegha <jpflegha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 12:46:00 by jpflegha          #+#    #+#             */
-/*   Updated: 2025/03/14 14:51:54 by jpflegha         ###   ########.fr       */
+/*   Updated: 2025/03/16 17:06:06 by jpflegha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,27 +26,7 @@ int	is_sorted(int *stack, int size)
 	return (1);
 }
 
-int	*create_stack_a(char **input, int size)
-{
-	int	*stack_a;
-	int	i;
 
-	stack_a = malloc(sizeof(int) * size);
-	if (!stack_a)
-		return (NULL);
-	i = 0;
-	while (i < size)
-	{
-		stack_a[i] = ft_atoi(input[i]);
-		i++;
-	}
-	if (has_duplicates(stack_a, size))
-	{
-		free(stack_a);
-		exit(1);
-	}
-	return (stack_a);
-}
 
 void	malloc_fail(int *stack_a, int *stack_b)
 {
@@ -63,10 +43,40 @@ void	malloc_fail(int *stack_a, int *stack_b)
 
 int	get_max_bits(int max_num)
 {
-	int	max_bits;
+	int	bits;
 
-	max_bits = 0;
-	while ((max_num >> max_bits) != 0)
-		max_bits++;
-	return (max_bits);
+	bits = 0;
+	while (max_num > 0)
+	{
+		bits++;
+		max_num >>= 1;
+	}
+	return (bits);
 }
+
+int find_min_position(int *stack, int size)
+{
+    int min_pos = 0;
+    int i;
+    
+    for (i = 1; i < size; i++)
+    {
+        if (stack[i] < stack[min_pos])
+            min_pos = i;
+    }
+    return min_pos;
+}
+
+int find_max_position(int *stack, int size)
+{
+    int max_pos = 0;
+    int i;
+    
+    for (i = 1; i < size; i++)
+    {
+        if (stack[i] > stack[max_pos])
+            max_pos = i;
+    }
+    return max_pos;
+}
+

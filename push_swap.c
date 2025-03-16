@@ -6,11 +6,12 @@
 /*   By: jpflegha <jpflegha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 13:36:34 by jpflegha          #+#    #+#             */
-/*   Updated: 2025/03/15 14:00:44 by jpflegha         ###   ########.fr       */
+/*   Updated: 2025/03/16 15:48:57 by jpflegha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 
 void	push_a(int *stack_a, int *stack_b, int *size_a, int *size_b)
 {
@@ -58,6 +59,24 @@ void	push_b(int *stack_a, int *stack_b, int *size_a, int *size_b)
 	}
 	(*size_a)--;
 	write(1, "pb\n", 3);
+}
+	
+void	rotate_b(int *stack_b, int size_b)
+{
+	int	temp;
+	int	i;
+
+	if (size_b <= 1)
+		return ;
+	temp = stack_b[0];
+	i = 0;
+	while (i < size_b - 1)
+	{
+		stack_b[i] = stack_b[i + 1];
+		i++;
+	}
+	stack_b[size_b - 1] = temp;
+	write(1, "rb\n", 3);
 }
 
 void	rotate_a(int *stack_a, int size_a)

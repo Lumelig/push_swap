@@ -6,7 +6,7 @@
 /*   By: jpflegha <jpflegha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 13:21:57 by jpflegha          #+#    #+#             */
-/*   Updated: 2025/03/15 14:41:30 by jpflegha         ###   ########.fr       */
+/*   Updated: 2025/03/16 16:48:04 by jpflegha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void sort_3(int *stack_a, int size_a)
     }
 }
 
-void sort_small(int *stack_a, int *stack_b, int size)
+void sort_5(int *stack_a, int *stack_b, int size)
 {
     int size_a = size;
     int size_b = 0;
@@ -69,7 +69,7 @@ void sort_small(int *stack_a, int *stack_b, int size)
         push_a(stack_a, stack_b, &size_a, &size_b);
 }
 
-void bubble_sort(int *stack_a, int *stack_b, int size)
+void easy_sort(int *stack_a, int *stack_b, int size)
 {
     if(!is_sorted(stack_a, size))
     {
@@ -78,7 +78,7 @@ void bubble_sort(int *stack_a, int *stack_b, int size)
             sort_3(stack_a, size);
         }
         else
-            sort_small(stack_a, stack_b, size);
+            sort_5(stack_a, stack_b, size);
     }
     free(stack_a);
 	free(stack_b);
