@@ -6,7 +6,7 @@
 /*   By: jpflegha <jpflegha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 13:32:38 by jpflegha          #+#    #+#             */
-/*   Updated: 2025/03/16 22:58:26 by jpflegha         ###   ########.fr       */
+/*   Updated: 2025/03/16 23:04:34 by jpflegha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void	process_chunk(int *stack_a, int *stack_b, int size, int *current_vals)
 		push_max_from_b(stack_a, stack_b, &size_a, &size_b);
 	current_vals[0] = size_a;
 	current_vals[1] = size_b;
+	
 }
 
 void	sort_by_chunks(int *stack_a, int *stack_b, int size)
