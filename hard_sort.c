@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   radix_sort.c                                       :+:      :+:    :+:   */
+/*   hard_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpflegha <jpflegha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 13:32:38 by jpflegha          #+#    #+#             */
-/*   Updated: 2025/03/16 17:09:27 by jpflegha         ###   ########.fr       */
+/*   Updated: 2025/03/16 19:17:23 by jpflegha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 void	push_max_from_b(int *stack_a, int *stack_b, int *size_a, int *size_b)
 {
@@ -21,28 +20,22 @@ void	push_max_from_b(int *stack_a, int *stack_b, int *size_a, int *size_b)
 
 	max_val = -1;
 	max_pos = 0;
-	j = 0;
-	while (j < *size_b)
+	j = -1;
+	while (++j < *size_b)
 	{
 		if (stack_b[j] > max_val)
 		{
 			max_val = stack_b[j];
 			max_pos = j;
 		}
-		j++;
 	}
+	j = 0;
 	if (max_pos <= *size_b / 2)
-	{
-		j = 0;
 		while (j++ < max_pos)
 			rotate_b(stack_b, *size_b);
-	}
 	else
-	{
-		j = 0;
 		while (j++ < *size_b - max_pos)
 			reverse_rotate_b(stack_b, *size_b);
-	}
 	push_a(stack_a, stack_b, size_a, size_b);
 }
 
@@ -96,8 +89,6 @@ void	sort_by_chunks(int *stack_a, int *stack_b, int size)
 	}
 }
 
-
-
 void	radix_sort(int max_bits, int size, int *stack_a, int *stack_b)
 {
 	int	size_b;
@@ -129,6 +120,7 @@ void	radix_sort(int max_bits, int size, int *stack_a, int *stack_b)
 void	hard_sort(int *stack_a, int *stack_b, int size)
 {
 	int	max_bits;
+
 	max_bits = get_max_bits(size - 1);
 	index_stack(stack_a, size);
 	if (size <= 100)

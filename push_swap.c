@@ -6,12 +6,11 @@
 /*   By: jpflegha <jpflegha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 13:36:34 by jpflegha          #+#    #+#             */
-/*   Updated: 2025/03/16 15:48:57 by jpflegha         ###   ########.fr       */
+/*   Updated: 2025/03/16 18:48:20 by jpflegha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 void	push_a(int *stack_a, int *stack_b, int *size_a, int *size_b)
 {
@@ -60,7 +59,7 @@ void	push_b(int *stack_a, int *stack_b, int *size_a, int *size_b)
 	(*size_a)--;
 	write(1, "pb\n", 3);
 }
-	
+
 void	rotate_b(int *stack_b, int size_b)
 {
 	int	temp;
@@ -96,26 +95,15 @@ void	rotate_a(int *stack_a, int size_a)
 	stack_a[size_a - 1] = temp;
 	write(1, "ra\n", 3);
 }
-void swap_a(int *stack_a, int size_a)
-{
-    int temp;
 
-    if (size_a < 2)
-        return;
-    temp = stack_a[0];
-    stack_a[0] = stack_a[1];
-    stack_a[1] = temp;
+void	swap_a(int *stack_a, int size_a)
+{
+	int	temp;
+
+	if (size_a < 2)
+		return ;
+	temp = stack_a[0];
+	stack_a[0] = stack_a[1];
+	stack_a[1] = temp;
 	write(STDOUT_FILENO, "sa\n", 3);
-}
-
-void swap_b(int *stack_b, int size_b)
-{
-    int temp;
-
-    if (size_b < 2)
-        return;
-    temp = stack_b[0];
-    stack_b[0] = stack_b[1];
-    stack_b[1] = temp;
-    write(STDOUT_FILENO, "sb\n", 3);
 }

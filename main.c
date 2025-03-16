@@ -6,7 +6,7 @@
 /*   By: jpflegha <jpflegha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 23:41:08 by jpflegha          #+#    #+#             */
-/*   Updated: 2025/03/16 17:14:37 by jpflegha         ###   ########.fr       */
+/*   Updated: 2025/03/16 18:54:56 by jpflegha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int	check_duplicates(int *arr, int size)
 	}
 	return (0);
 }
+
 int	*create_stack_a(char **input, int size)
 {
 	int	*stack_a;
@@ -55,6 +56,7 @@ int	*create_stack_a(char **input, int size)
 	}
 	return (stack_a);
 }
+
 int	check_valid_input(char **input)
 {
 	int	j;
@@ -69,8 +71,7 @@ int	check_valid_input(char **input)
 			if (!ft_isdigit(input[i][j]) && input[i][j] != '-'
 				&& input[i][j] != '+')
 			{
-				write(2,
-					"Incorrect input! Only numbers are allowed.\n", 43);
+				write(2, "Incorrect input! Only numbers are allowed.\n", 43);
 				return (0);
 			}
 			j++;
@@ -120,7 +121,7 @@ int	main(int ac, char **av)
 	{
 		if (!argv[1])
 		{
-			write(2,"How to sort one number ??? try again\n", 38);
+			write(2, "How to sort one number ??? try again\n", 38);
 		}
 		argv = ft_split(av[1], ' ');
 		size = check_valid_input(argv);
@@ -153,5 +154,4 @@ int	main(int ac, char **av)
 // 	s += '"'
 // 	print(s)
 
-
-//https://github.com/gemartin99/Push-Swap-Tester
+// https://github.com/gemartin99/Push-Swap-Tester

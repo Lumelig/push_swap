@@ -6,14 +6,14 @@
 /*   By: jpflegha <jpflegha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 23:45:31 by jpflegha          #+#    #+#             */
-/*   Updated: 2025/03/16 17:09:14 by jpflegha         ###   ########.fr       */
+/*   Updated: 2025/03/16 18:53:51 by jpflegha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libft/libft.h"
+# include "./libft/libft.h"
 # include <stdio.h>
 # include <unistd.h>
 
