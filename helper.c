@@ -6,7 +6,7 @@
 /*   By: jpflegha <jpflegha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 17:04:20 by jpflegha          #+#    #+#             */
-/*   Updated: 2025/03/16 18:39:52 by jpflegha         ###   ########.fr       */
+/*   Updated: 2025/03/24 12:52:10 by jpflegha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ void	index_stack(int *stack_a, int size)
 	int	*copy;
 	int	*index;
 	int	i;
-	int	j;
-	int	temp;
 
 	copy = malloc(sizeof(int) * size);
 	index = malloc(sizeof(int) * size);

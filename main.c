@@ -6,7 +6,7 @@
 /*   By: jpflegha <jpflegha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 23:41:08 by jpflegha          #+#    #+#             */
-/*   Updated: 2025/03/16 22:40:45 by jpflegha         ###   ########.fr       */
+/*   Updated: 2025/03/24 12:27:09 by jpflegha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,9 @@ int	check_valid_input(char **input)
 		while (input[i][j])
 		{
 			//fixen
-			if (!ft_isdigit(input[i][j]) && input[i][j] != '-'
-			&& input[i][j] != '+' )
+			if (!ft_isdigit(input[i][j]) && 
+    		!(input[i][j] == '-' && j == 0 && ft_isdigit(input[i][j + 1])) &&
+    		!(input[i][j] == '+' && j == 0 && ft_isdigit(input[i][j + 1])))
 			{
 				write(2, "Error\n", 7);
 				return (0);
@@ -102,7 +103,7 @@ void	decision_maker1(char **input, int size)
 			if (stack_a[0] > stack_a[1])
 				rotate_a(stack_a, 2);
 		}
-		else if (size <= 5)
+		else if (size <= 20)
 		{
 			easy_sort(stack_a, stack_b, size);
 		}

@@ -6,7 +6,7 @@
 /*   By: jpflegha <jpflegha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 18:45:24 by jpflegha          #+#    #+#             */
-/*   Updated: 2025/03/16 18:52:22 by jpflegha         ###   ########.fr       */
+/*   Updated: 2025/03/23 16:37:00 by jpflegha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	reverse_rotate_both(int *stack_a, int *stack_b, int size_a, int size_b)
 		while (i > 0)
 		{
 			stack_b[i] = stack_b[i - 1];
-			i++;
+			i--;
 		}
 		stack_b[0] = temp_b;
 		write(1, "rrr\n", 4);
