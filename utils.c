@@ -6,7 +6,7 @@
 /*   By: jpflegha <jpflegha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 12:46:00 by jpflegha          #+#    #+#             */
-/*   Updated: 2025/03/16 18:47:57 by jpflegha         ###   ########.fr       */
+/*   Updated: 2025/03/27 20:32:31 by jpflegha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,25 @@ int	find_max_position(int *stack, int size)
 		i++;
 	}
 	return (max_pos);
+}
+
+int	find_max_index(int *stack, int size)
+{
+    int	max;
+    int	max_index;
+    int	i;
+
+    max = stack[0];
+    max_index = 0;
+    i = 1;
+    while (i < size)
+    {
+        if (stack[i] > max)
+        {
+            max = stack[i];
+            max_index = i;
+        }
+        i++;
+    }
+    return (max_index);
 }

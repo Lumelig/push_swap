@@ -6,7 +6,7 @@
 /*   By: jpflegha <jpflegha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 23:41:08 by jpflegha          #+#    #+#             */
-/*   Updated: 2025/03/24 12:27:09 by jpflegha         ###   ########.fr       */
+/*   Updated: 2025/03/27 20:31:10 by jpflegha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,22 @@ int	*create_stack_a(char **input, int size)
 {
 	int	*stack_a;
 	int	i;
+	long num;
 
 	stack_a = malloc(sizeof(int) * size);
 	if (!stack_a)
 		return (NULL);
-	i = 0;
-	while (i < size)
+	i = -1;
+	while (++i < size)
 	{
-		stack_a[i] = ft_atoi(input[i]);
-		i++;
+		num = ft_atol(input[i]);
+		if (num < -2147483648 || num > 2147483647)
+		{
+			free(stack_a);
+			write(2, "Error\n", 7);
+			exit(1);
+		}
+		stack_a[i] = num;
 	}
 	if (check_duplicates(stack_a, size))
 	{
@@ -62,24 +69,26 @@ int	check_valid_input(char **input)
 	int	j;
 	int	i;
 
-	j = 0;
 	i = 0;
 	while (input[i])
 	{
+		j = 0;
 		while (input[i][j])
 		{
-			//fixen
-			if (!ft_isdigit(input[i][j]) && 
-    		!(input[i][j] == '-' && j == 0 && ft_isdigit(input[i][j + 1])) &&
-    		!(input[i][j] == '+' && j == 0 && ft_isdigit(input[i][j + 1])))
+			if (j == 0 && (input[i][j] == '-' || input[i][j] == '+'))
 			{
-				write(2, "Error\n", 7);
-				return (0);
+				j++;
+				if (!ft_isdigit(input[i][j]))
+					error_return;
+				continue;
 			}
+			if (!ft_isdigit(input[i][j]))
+				error_return;
 			j++;
 		}
+		if (j == 0)
+			error_return;
 		i++;
-		j = 0;
 	}
 	return (i);
 }

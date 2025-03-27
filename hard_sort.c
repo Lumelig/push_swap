@@ -6,12 +6,11 @@
 /*   By: jpflegha <jpflegha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 13:32:38 by jpflegha          #+#    #+#             */
-/*   Updated: 2025/03/24 13:28:28 by jpflegha         ###   ########.fr       */
+/*   Updated: 2025/03/27 20:34:10 by jpflegha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 void	radix_sort(int max_bits, int size, int *stack_a, int *stack_b)
 {
@@ -25,8 +24,6 @@ void	radix_sort(int max_bits, int size, int *stack_a, int *stack_b)
 	i = -1;
 	while (++i < max_bits)
 	{
-		if (is_sorted(stack_a, size_a) == 1)
-			break;
 		j = -1;
 		while (++j < size)
 		{

@@ -6,11 +6,17 @@
 /*   By: jpflegha <jpflegha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 17:04:20 by jpflegha          #+#    #+#             */
-/*   Updated: 2025/03/24 12:52:10 by jpflegha         ###   ########.fr       */
+/*   Updated: 2025/03/27 20:32:49 by jpflegha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	error_return(void)
+{
+	write(2, "Error\n", 6);
+	exit(1);
+}
 
 void	create_index(int *stack_a, int *copy, int size, int *index)
 {
@@ -51,10 +57,9 @@ void	index_stack(int *stack_a, int size)
 	index = malloc(sizeof(int) * size);
 	if (!copy || !index)
 	{
-		if (copy)
-			free(copy);
-		else if (index)
-			free(index);
+		if (copy) free(copy);
+	if (index) free(index);
+
 		return ;
 	}
 	i = 0;

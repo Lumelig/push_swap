@@ -13,7 +13,7 @@ LIB_DIRS = -L$(LIBFT_DIR)
 INCLUDES = -I$(LIBFT_DIR)/libft
 
 CC = cc 
-CFLAGS = -Wall -Werror -Wextra
+#CFLAGS = -Wall -Werror -Wextra
 
 all: libft $(NAME)
 
@@ -31,8 +31,8 @@ clean:
 	
 
 fclean:
-	rm -fr push_swap
-	rm -fr $(OBJECTS)
+	rm -f push_swap
+	rm -f $(OBJECTS)
 	@make -C $(LIBFT_DIR) fclean
 	rm -fr $(LIBFT_DIR)
 

@@ -6,7 +6,7 @@
 /*   By: jpflegha <jpflegha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 23:45:31 by jpflegha          #+#    #+#             */
-/*   Updated: 2025/03/16 18:53:51 by jpflegha         ###   ########.fr       */
+/*   Updated: 2025/03/27 20:33:16 by jpflegha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <unistd.h>
 
+int	find_max_index(int *stack, int size);
 /* Input Validation */
 int		check_valid_input(char **input);
 int		has_duplicates(int *arr, int size);
@@ -57,6 +58,7 @@ void	reverse_rotate_b(int *stack_b, int size_b);
 void	reverse_rotate_both(int *stack_a, int *stack_b, int size_a, int size_b);
 
 /* Utility Functions */
+void	error_return(void);
 int		find_max_position(int *stack, int size);
 int		find_min_position(int *stack, int size);
 
