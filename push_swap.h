@@ -6,7 +6,7 @@
 /*   By: jpflegha <jpflegha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 23:45:31 by jpflegha          #+#    #+#             */
-/*   Updated: 2025/03/27 20:33:16 by jpflegha         ###   ########.fr       */
+/*   Updated: 2025/03/28 15:26:08 by jpflegha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 # define PUSH_SWAP_H
 
 # include "./libft/libft.h"
+# include <limits.h>
 # include <stdio.h>
 # include <unistd.h>
 
-int	find_max_index(int *stack, int size);
+int		find_max_index(int *stack, int size);
 /* Input Validation */
 int		check_valid_input(char **input);
 int		has_duplicates(int *arr, int size);

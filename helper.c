@@ -6,7 +6,7 @@
 /*   By: jpflegha <jpflegha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 17:04:20 by jpflegha          #+#    #+#             */
-/*   Updated: 2025/03/27 20:32:49 by jpflegha         ###   ########.fr       */
+/*   Updated: 2025/03/28 15:29:37 by jpflegha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	error_return(void)
 {
-	write(2, "Error\n", 6);
+	write(2, "Error\n", 7);
 	exit(1);
 }
 
@@ -57,9 +57,10 @@ void	index_stack(int *stack_a, int size)
 	index = malloc(sizeof(int) * size);
 	if (!copy || !index)
 	{
-		if (copy) free(copy);
-	if (index) free(index);
-
+		if (copy)
+			free(copy);
+		if (index)
+			free(index);
 		return ;
 	}
 	i = 0;

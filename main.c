@@ -6,7 +6,7 @@
 /*   By: jpflegha <jpflegha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 23:41:08 by jpflegha          #+#    #+#             */
-/*   Updated: 2025/03/27 20:31:10 by jpflegha         ###   ########.fr       */
+/*   Updated: 2025/03/28 16:39:43 by jpflegha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	check_duplicates(int *arr, int size)
 		{
 			if (arr[i] == arr[j])
 			{
-				write(2, "Error\n", 7);
+				write(2, "Error\n", 8);
 				return (1);
 			}
 			j++;
@@ -37,9 +37,9 @@ int	check_duplicates(int *arr, int size)
 
 int	*create_stack_a(char **input, int size)
 {
-	int	*stack_a;
-	int	i;
-	long num;
+	int		*stack_a;
+	int		i;
+	long	num;
 
 	stack_a = malloc(sizeof(int) * size);
 	if (!stack_a)
@@ -48,13 +48,12 @@ int	*create_stack_a(char **input, int size)
 	while (++i < size)
 	{
 		num = ft_atol(input[i]);
-		if (num < -2147483648 || num > 2147483647)
+		if (num < INT_MIN || num > INT_MAX)
 		{
 			free(stack_a);
-			write(2, "Error\n", 7);
-			exit(1);
+			error_return();
 		}
-		stack_a[i] = num;
+		stack_a[i] = (int)num;
 	}
 	if (check_duplicates(stack_a, size))
 	{
@@ -79,15 +78,15 @@ int	check_valid_input(char **input)
 			{
 				j++;
 				if (!ft_isdigit(input[i][j]))
-					error_return;
-				continue;
+					error_return();
+				continue ;
 			}
 			if (!ft_isdigit(input[i][j]))
-				error_return;
+				error_return();
 			j++;
 		}
 		if (j == 0)
-			error_return;
+			error_return();
 		i++;
 	}
 	return (i);
@@ -130,6 +129,8 @@ int	main(int ac, char **av)
 		return (0);
 	else if (ac == 2)
 	{
+		if (av[1][0] == '\0')
+			error_return();
 		argv = ft_split(av[1], ' ');
 		size = check_valid_input(argv);
 	}
@@ -140,8 +141,6 @@ int	main(int ac, char **av)
 		if (size == 0)
 			return (1);
 	}
-	if (size <= 1)
-		return (1);
 	decision_maker1(argv, size);
 	return (0);
 }
